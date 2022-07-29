@@ -46,18 +46,17 @@ function App() {
   return (
     <div>
       <PanelTotal
-        nombre="Productos"
-        cantidad={totalProducts}
+        cardName="Productos"
+        cardValue={totalProducts}
       />
       <PanelTotal
-        nombre="Usuarios"
-        cantidad={totalUsers}
+        cardName="Usuarios"
+        cardValue={totalUsers}
       />
       <PanelTotal
-        nombre="Categorias"
-        cantidad="1"
+        cardName="Categorias"
+        cardValue="1"
       />
-
 
     </div>
   );
