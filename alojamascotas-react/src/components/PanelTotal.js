@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 function PanelTotal(props) {
   return (
@@ -21,5 +22,25 @@ function PanelTotal(props) {
     </div>
   )
 }
+
+/* DEFINICIÓN DE PROPIEDADES POR DEFAULT */
+
+PanelTotal.defaultProps = {
+  cardName: 'Sin titulo',
+  cardValue: 0,
+}
+
+/* PROPTYPES */
+
+PanelTotal.propTypes = {
+      cardName: PropTypes.string.isRequired,
+      cardValue: PropTypes.number.isRequired,
+      // cardValue: PropTypes.oneOfType([
+      //     PropTypes.string,
+      //     PropTypes.number
+      // ]).isRequired,
+  }
+
+
 
 export default PanelTotal

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import PanelTotal from './components/PanelTotal';
+import PanelProductsList from './components/PanelProductsList';
 
 function App() {
 
   const [totalProducts, setTotalProducts] = useState([]);
   const [totalUsers, setTotalUsers] = useState([]);
+  const [totalProductsList, setTotalProductsList] = useState([]);
 
   useEffect(() => {
     
@@ -20,6 +22,8 @@ function App() {
         setTotalProducts(data.count)
         if (!data.Error) {
           setTotalProducts(data.count);
+          setTotalProductsList(data.products)
+          // console.log(data.products)
         } else {
           setTotalProducts([]);
         }
@@ -57,6 +61,16 @@ function App() {
         cardName="Categorias"
         cardValue="1"
       />
+        
+        <div className="row">
+
+            {totalProductsList.map( (product, i) => {
+
+                return <PanelProductsList {...product} key={i}/>
+            
+            })}
+
+        </div>
 
     </div>
   );
