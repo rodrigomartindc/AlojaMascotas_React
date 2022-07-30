@@ -3,11 +3,13 @@ import './App.css';
 import PanelTotal from './components/PanelTotal';
 import PanelProductsList from './components/PanelProductsList';
 
+
 function App() {
 
   const [totalProducts, setTotalProducts] = useState([]);
   const [totalUsers, setTotalUsers] = useState([]);
   const [totalProductsList, setTotalProductsList] = useState([]);
+  const [lastProduct, setLastProduct] = useState([]);
 
   useEffect(() => {
     
@@ -23,6 +25,7 @@ function App() {
         if (!data.Error) {
           setTotalProducts(data.count);
           setTotalProductsList(data.products)
+          setLastProduct(data.products[data.products.length-1])
           // console.log(data.products)
         } else {
           setTotalProducts([]);
@@ -48,6 +51,7 @@ function App() {
 
 
   return (
+
     <div>
       <PanelTotal
         cardName="Productos"
@@ -61,15 +65,18 @@ function App() {
         cardName="Categorias"
         cardValue="1"
       />
-        
-        <div className="row">
 
+      <h2>Ultimo Producto</h2>  
+      <div className="row">
+          <PanelProductsList {...lastProduct}/>
+      </div>
+
+      <h2>Listado de Productos</h2>  
+      <div className="row">
             {totalProductsList.map( (product, i) => {
 
-                return <PanelProductsList {...product} key={i}/>
-            
+                return <PanelProductsList {...product} key={i}/> 
             })}
-
         </div>
 
     </div>
