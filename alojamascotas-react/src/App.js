@@ -8,6 +8,7 @@ function App() {
 
   const [totalProducts, setTotalProducts] = useState([]);
   const [totalUsers, setTotalUsers] = useState([]);
+  const [totalCategories, setTotalCategories] = useState([])
   const [totalProductsList, setTotalProductsList] = useState([]);
   const [lastProduct, setLastProduct] = useState([]);
 
@@ -24,6 +25,7 @@ function App() {
         setTotalProducts(data.count)
         if (!data.Error) {
           setTotalProducts(data.count);
+          setTotalCategories(data.count) //Modificar a Api categories
           setTotalProductsList(data.products)
           setLastProduct(data.products[data.products.length-1])
           // console.log(data.products)
