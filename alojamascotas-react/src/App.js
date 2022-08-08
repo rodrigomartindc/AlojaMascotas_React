@@ -54,7 +54,10 @@ function App() {
 
   return (
 
+
+
     <div>
+
       <PanelTotal
         cardName="Productos"
         cardValue={totalProducts}
