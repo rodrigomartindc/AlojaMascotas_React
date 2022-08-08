@@ -13,7 +13,7 @@ function App() {
   const [lastProduct, setLastProduct] = useState([]);
 
   useEffect(() => {
-    
+
     // Petición Asincrónica al montarse el componente
     const endpointProducts = "http://localhost:8000/api/products";
     const endpointUsers = 'http://localhost:8000/api/users';
@@ -68,19 +68,19 @@ function App() {
       />
       <PanelTotal
         cardName="Categorias"
-        cardValue="1"
+        cardValue="3"
       />
 
-      <h2>Ultimo Producto</h2>  
+      <h2>Ultimo Producto</h2>
       <div className="row">
           <PanelProductsList {...lastProduct}/>
       </div>
 
-      <h2>Listado de Productos</h2>  
+      <h2>Listado de Productos</h2>
       <div className="row">
             {totalProductsList.map( (product, i) => {
 
-                return <PanelProductsList {...product} key={i}/> 
+                return <PanelProductsList {...product} key={i}/>
             })}
         </div>
 
