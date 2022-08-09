@@ -23,15 +23,18 @@ function App() {
       .then(response => response.json())
       .then(data => {
         setTotalProducts(data.count)
-        if (!data.Error) {
-          setTotalProducts(data.count);
-          setTotalCategories(data.count) //Modificar a Api categories
+        // if (!data.Error) {
+        //   setTotalProducts(data.count);
+        //   setTotalCategories(data.count) //Modificar a Api categories
+        //   setTotalProductsList(data.products)
+        //   setLastProduct(data.products[data.products.length-1])
+        //   // console.log(data.products)
+        // } else {
+        //   setTotalProducts([]);
+        // }
+          // setTotalCategories(data.count) //Modificar a Api categories
           setTotalProductsList(data.products)
           setLastProduct(data.products[data.products.length-1])
-          // console.log(data.products)
-        } else {
-          setTotalProducts([]);
-        }
       })
       .catch(error => console.log(error))
 
